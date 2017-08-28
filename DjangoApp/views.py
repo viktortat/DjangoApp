@@ -4,12 +4,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 
+
 def home(request):
-    content = {'text':'Привет мир!!!','title':'Главная страница'}
-    return render(request,'base.html',content)
+    content = {'text': 'Привет мир!!!', 'title': 'Главная страница'}
+    return render(request, 'base.html', content)
+
 
 class Index(View):
-    def get(self,request):
+    def get(self, request):
         content = {'text': 'Привет мир!', 'title': 'Главная страница'}
         return render(request, 'base.html', content)
         # return HttpResponse('Запрос на GET')
