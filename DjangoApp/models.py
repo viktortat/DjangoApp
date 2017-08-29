@@ -19,9 +19,6 @@ class Post(models.Model):
 
 
 
-
-
-
 '''
 # Отношения многие к одному
 class School(models.Model):

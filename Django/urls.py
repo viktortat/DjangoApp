@@ -16,11 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+
 from DjangoApp import views
-from DjangoApp.views import Index
+from DjangoApp.views import Index, Profile
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$', views.home, name='home'),
-    url(r'^$', Index.as_view(), name='index')
+    url(r'^$', Index.as_view(), name='index'),
+    url(r'^user/(\w+)/$', Index.as_view(), Profile.as_view())
 ]
