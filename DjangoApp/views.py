@@ -12,7 +12,7 @@ def home(request):
 
 class Index(View):
     def get(self, request):
-        content = {'text': 'Привет мир!', 'title': 'Главная страница'}
+        content = {'text': 'Начало...', 'title': 'Главная страница'}
         return render(request, 'base.html', content)
         # return HttpResponse('Запрос на GET')
 
