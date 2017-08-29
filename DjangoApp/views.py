@@ -25,7 +25,6 @@ class Index(View):
 class Profile(View):
     """ User Profile Page url: user/<username>"""
     def get(self, request, username):
-
         user = User.objects.get(username=username)
         posts = Post.objects.filter(user=user)
         context = {
