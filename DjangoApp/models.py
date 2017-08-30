@@ -7,6 +7,7 @@ from user_profile.models import User
 
 #https://djbook.ru/rel1.9/ref/models/fields.html
 class Post(models.Model):
+    '''Post model'''
     user = models.ForeignKey(User)
     text = models.CharField(max_length=300)
     created_date = models.DateTimeField(auto_now_add=True)
@@ -17,7 +18,16 @@ class Post(models.Model):
     def __str__(self):
         return self.text[:50]
 
+    # models.ManyToManyField
 
+
+class HashTag(models.Model):
+    '''Hash model'''
+    name = models.CharField(max_length=100, unique=True)
+    post = models.ManyToManyField(Post)
+
+    def __str__(self):
+        return self.name[:50]
 
 '''
 # Отношения многие к одному
