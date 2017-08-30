@@ -12,18 +12,29 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+
+Символ/выражение Совпадающая строка
+. (Точка)           Любой символ
+^ (Каретка)         Начало строки
+$                   Конец строки
+*                   0 или более повторений
++                   1 или более повторений
+?                   0 или 1 повторение
+|                   А | В означает A или B
+[a-z]               Любые буквы в нижнем регистре
+\w                  Любой цифробуквенный символ или _
+\d                  Любая цифра
+
 """
 from django.conf.urls import url
 from django.contrib import admin
 
-
 from DjangoApp import views
 from DjangoApp.views import Index, Profile
-
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$', views.home, name='home'),
     url(r'^$', Index.as_view(), name='index'),
-    url(r'^user/(\w+)/$', Index.as_view(), Profile.as_view())
+    url(r'^user/(\w+)/$', Profile.as_view())
 ]
