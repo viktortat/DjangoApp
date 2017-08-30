@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="row">
-<div class="col-md-12 column">
+    <div class="row">
+        <h8>Из Profile!</h8>
+        <br>
+        <a href="https://djbook.ru/rel1.9/topics/forms/index.html" target="_blank">Справка по работе с формами</a>
 
-    <h1>Из Profile!</h1>
-
-    {% for post in posts %}
-        <div class="well">
-            {{ post.text }}
+        <div class="col-md-12">
+            <form action="post/" method="post">
+                {% csrf_token %}
+                <div class="col-md-8 col-md-offset-2 fieldWrapper">
+                    {{ form.text.errors }}
+                    {{ form.text }}
+                </div>
+            </form>
         </div>
-    {% endfor %}
 
-</div>
-</div>
-
+        <div class="col-md-12 column">
+            {% for post in posts %}
+                <div class="well">
+                    {{ post.text }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}

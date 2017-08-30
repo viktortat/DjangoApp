@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.views import View
 from .models import Post
 from user_profile.models import User
-
+from DjangoApp.forms import PostForm
 
 def home(request):
     content = {'text': 'Привет мир!!!', 'title': 'Главная страница'}
@@ -27,8 +27,10 @@ class Profile(View):
     def get(self, request, username):
         user = User.objects.get(username=username)
         posts = Post.objects.filter(user=user)
+        form = PostForm()
         context = {
             'posts': posts,
-            'user': user
+            'user': user,
+            'form': form
         }
         return render(request, 'profile.html', context)
