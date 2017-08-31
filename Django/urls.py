@@ -30,11 +30,12 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from DjangoApp import views
-from DjangoApp.views import Index, Profile
+from DjangoApp.views import Index, Profile, PostPost
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$', views.home, name='home'),
     url(r'^$', Index.as_view(), name='index'),
-    url(r'^user/(\w+)/$', Profile.as_view())
+    url(r'^user/(\w+)/$', Profile.as_view()),
+    url(r'^user/(\w+)/post/$', PostPost.as_view())
 ]
